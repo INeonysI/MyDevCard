@@ -23,7 +23,7 @@
     <!-- CSS -->
     <link rel="stylesheet" href="./css/style.css" />
 
-    <title>Frontend Mentor | Link-sharing app</title>
+    <title>MyDevCard | Links</title>
 
     <meta
       type="description"
@@ -32,7 +32,9 @@
   </head>
   <body class="bg-c6">
     <header class="flex container bg-c8 my-6 header Heading-S">
+      <!-- Lado esquerdo do header -->
       <div class="header-side">
+        <!-- Logo do Header -->
         <div class="logo">
           <img
             src="assets/images/logo-devlinks-large.svg"
@@ -45,8 +47,11 @@
             class="sm:hidden"
           />
         </div>
-        <div
+        <!-- Botão de links -->
+        <a
           class="header-btn bg-c3 text-c1 hover:text-c1 cursor-pointer duration-300"
+          href="./index.html"
+          data-history
         >
           <div class="svg-container">
             <svg
@@ -63,10 +68,16 @@
             </svg>
           </div>
           <p>Links</p>
-        </div>
+        </a>
       </div>
+      <!-- Lado direito do header -->
       <div class="header-side">
-        <div class="header-btn hover:text-c1 cursor-pointer duration-300">
+        <!-- Botão de perfil -->
+        <a
+          class="header-btn hover:text-c1 cursor-pointer duration-300"
+          href="./profile.html"
+          data-history
+        >
           <div class="svg-container">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -82,9 +93,12 @@
             </svg>
           </div>
           <p>Profile Details</p>
-        </div>
+        </a>
+        <!-- Botão de preview -->
         <a
           class="preview-btn hover:bg-c2 hover:border-none cursor-pointer duration-300"
+          href="./preview.html"
+          data-history=""
         >
           <div class="svg-container md:hidden">
             <svg
@@ -104,5 +118,7 @@
         </a>
       </div>
     </header>
+    <main class="content">links</main>
+    <script type="module" src="js/script.js"></script>
   </body>
 </html>

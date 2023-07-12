@@ -611,6 +611,16 @@ video {
   color: rgb(99 60 255 / var(--tw-text-opacity));
 }
 
+.focus\:text-c8:focus {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.active\:text-c8:active {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
 @media (min-width: 640px) {
   .sm\:block {
     display: block;
@@ -622,10 +632,6 @@ video {
 }
 
 @media (min-width: 768px) {
-  .md\:block {
-    display: block;
-  }
-
   .md\:hidden {
     display: none;
   }

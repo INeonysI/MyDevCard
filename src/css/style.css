@@ -1,1 +1,10 @@
+/* tailwind */
 @import "../../dist/output.css";
+
+/* global */
+@import "./global/global.css";
+@import "./global/header.css";
+@import "./global/tipografia.css";
+/* utils */
+
+/* css */

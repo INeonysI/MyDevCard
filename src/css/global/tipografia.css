@@ -1,0 +1,19 @@
+.Heading-M {
+  font: bold 2rem "Instrument Sans", sans-serif;
+  line-height: 150%;
+}
+
+.Heading-S {
+  font: bold 1rem "Instrument Sans", sans-serif;
+  line-height: 150%;
+}
+
+.Body-M {
+  font: regular 1rem "Instrument Sans", sans-serif;
+  line-height: 150%;
+}
+
+.Body-S {
+  font: regular 0.75rem "Instrument Sans", sans-serif;
+  line-height: 150%;
+}

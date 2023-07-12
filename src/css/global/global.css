@@ -1,0 +1,14 @@
+.container {
+  max-width: 92.98611111vw;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.svg-container path {
+  fill: currentColor;
+}
+
+svg {
+  width: 20px;
+  height: 20px;
+}

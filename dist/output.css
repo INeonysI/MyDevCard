@@ -556,9 +556,44 @@ video {
   }
 }
 
+.btn-primary {
+  padding: 11px 27px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s;
+  background-color: #633cff;
+  color: #ffffff;
+}
+
+.btn-primary:hover,
+  .btn-primary:active {
+  background-color: #beadff;
+}
+
+.btn-secondary {
+  padding: 11px 27px;
+  border-radius: 8px;
+  box-shadow: inset 0 2px #beadff, inset 0 -2px #beadff, inset 2px 0 #beadff,
+      inset -2px 0 #beadff;
+  cursor: pointer;
+  transition: all 0.3s;
+  color: #633cff;
+  /* Faz com que pressionar o botão com o mouse não selecione um quadrado, mas o elemento arredondado */
+  overflow: hidden;
+}
+
+.btn-secondary:hover,
+  .btn-secondary:active {
+  background-color: #efebff;
+}
+
 .my-6 {
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
+}
+
+.mb-10 {
+  margin-bottom: 2.5rem;
 }
 
 .flex {
@@ -569,12 +604,40 @@ video {
   display: none;
 }
 
+.min-h-\[300px\] {
+  min-height: 300px;
+}
+
+.min-h-\[200px\] {
+  min-height: 200px;
+}
+
+.flex-1 {
+  flex: 1 1 0%;
+}
+
 .cursor-pointer {
   cursor: pointer;
 }
 
+.flex-col {
+  flex-direction: column;
+}
+
 .gap-1 {
   gap: 0.25rem;
+}
+
+.gap-2 {
+  gap: 0.5rem;
+}
+
+.self-end {
+  align-self: flex-end;
+}
+
+.rounded-xl {
+  border-radius: 0.75rem;
 }
 
 .bg-c3 {
@@ -613,16 +676,6 @@ video {
 .hover\:text-c1:hover {
   --tw-text-opacity: 1;
   color: rgb(99 60 255 / var(--tw-text-opacity));
-}
-
-.focus\:text-c8:focus {
-  --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity));
-}
-
-.active\:text-c8:active {
-  --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
 @media (min-width: 640px) {

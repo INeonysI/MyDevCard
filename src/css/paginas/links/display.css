@@ -1,0 +1,28 @@
+.display {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mockup {
+  margin: 1rem;
+
+  position: relative;
+}
+
+.mockup-item {
+  position: absolute;
+  top: 278px;
+  left: 35px;
+
+  width: 237px;
+  height: 44px;
+
+  border-radius: 8px;
+}
+
+@media (max-width: 1024px) {
+  .display {
+    display: none;
+  }
+}

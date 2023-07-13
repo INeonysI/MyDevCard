@@ -38,4 +38,21 @@
   .btn-secondary:active {
     background-color: #efebff;
   }
+
+  .text-field {
+    padding: 12px 16px;
+    background-color: #ffffff;
+
+    border-radius: 12px;
+    border: 1px solid #d9d9d9;
+
+    margin-top: 0.25rem;
+
+    transition: all 0.3s;
+  }
+  .text-field:focus {
+    outline: none;
+    border: 1px solid #633cff;
+    box-shadow: 0px 0px 17px -8px #633cff;
+  }
 }

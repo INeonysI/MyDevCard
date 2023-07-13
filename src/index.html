@@ -31,6 +31,7 @@
     />
   </head>
   <body class="bg-c6 flex flex-col">
+    <!-- HEADER -->
     <header class="flex container gap-1 bg-c8 my-6 header Heading-S">
       <!-- Lado esquerdo do header -->
       <div class="header-side">
@@ -114,13 +115,17 @@
         </a>
       </div>
     </header>
+    <!-- MAIN -->
     <main class="content container links flex-1">
+      <!-- Seção de mockup do celular com os links -->
       <div class="display bg-c8 rounded-xl">
         <div class="mockup">
           <img src="./assets/images/illustration-phone-mockup.svg" alt="" />
         </div>
       </div>
+      <!-- Seção para adição de links ao card -->
       <div class="form bg-c8 rounded-xl flex flex-col">
+        <!-- Cabeçalho da seção -->
         <div class="form-texts flex flex-col gap-2 mb-10">
           <h2 class="Heading-M">Customize your links</h2>
           <p class="Body-M">
@@ -129,11 +134,14 @@
           </p>
         </div>
 
+        <!-- Botão para adicionar um link -->
         <button class="btn-secondary Heading-S" data-addLink>
           + Add new link
         </button>
 
+        <!-- Seção onde os links serão configurados -->
         <div class="links-config flex-1 min-h-[200px]" data-links></div>
+        <!-- Botão para salvar o card no localStorage -->
         <button class="btn-primary Heading-S self-end">Save</button>
       </div>
     </main>

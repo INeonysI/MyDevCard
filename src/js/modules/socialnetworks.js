@@ -1,3 +1,7 @@
+/* 
+  ENUM com as informações de cada rede social. 
+  A referência de cada rede social deve ser a mesma de seu campo name tudo minúsculo, sem caracteres especiais ou espaço.
+*/
 const socialnetworks = {
   facebook: {
     name: "Facebook",

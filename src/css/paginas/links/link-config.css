@@ -54,6 +54,7 @@
   overflow-y: scroll;
 
   z-index: 100;
+  isolation: isolate;
 }
 .dropdown-content.active {
   display: flex;
@@ -61,6 +62,8 @@
 
 .links-config-item {
   position: relative;
+
+  margin-top: 24px;
 }
 
 .icone-input {

@@ -13,6 +13,11 @@ svg {
   height: 20px;
 }
 
+/* Garante apenas o fundo do svg seja colorido */
+svg path:first-of-type {
+  fill: currentColor;
+}
+
 body {
   width: 100vw;
   height: 100vh;

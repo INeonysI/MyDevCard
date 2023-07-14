@@ -11,6 +11,10 @@
 }
 
 .mockup-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
   position: absolute;
   top: 278px;
   left: 35px;
@@ -18,7 +22,15 @@
   width: 237px;
   height: 44px;
 
+  padding: 11px 16px;
+
   border-radius: 8px;
+  z-index: 100;
+}
+
+.mockup-item img {
+  height: 20px;
+  width: 20px;
 }
 
 @media (max-width: 1024px) {

@@ -7,7 +7,7 @@ export default function initAddLink() {
   function handleClick() {
     const linksArea = document.querySelector("[data-links]");
     const dom = new Dom();
-    linksArea.appendChild(dom.criaLinkConfig());
+    linksArea.appendChild(dom.criaLinkConfig("github"));
   }
 
   addBtn.addEventListener("click", handleClick);

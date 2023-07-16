@@ -1,4 +1,3 @@
-import Dom from "./Dom.js";
 import socialnetworks from "./socialnetworks.js";
 
 export default class Dropdown {
@@ -9,19 +8,19 @@ export default class Dropdown {
   // Inicia a função de dropdown no elemento do construtor
   initDropdown() {
     const item = this.element;
+    const innerItem = item.querySelector("div");
     const show = item.querySelector("[data-dropdown=show]");
     const dropdownContent = item.querySelector("[data-dropdown=content]");
     const dropdownItems = item.querySelectorAll("[data-dropdown-item]");
     /* ===================== Abrir e fechar dropdown ===================== */
-    const { element } = this;
 
     // Função disparada ao clicar no elemento que abre o dropdown.
-    function handleClick() {
+    function openDropdown() {
       dropdownContent.classList.toggle("active");
       // Função disparada ao clicar na tela. Fecha o dropdown caso o clique não ocorra em um elmento interno ao dropdown.
       function clickOutside({ target }) {
         // Verifica se o click foi dentro do dropdown ou não
-        if (!item.contains(target)) {
+        if (!innerItem.contains(target)) {
           dropdownContent.classList.remove("active");
           // Remove o evento de fechar dropdown quando ele for fechado
           window.removeEventListener("click", clickOutside);
@@ -32,7 +31,7 @@ export default class Dropdown {
     }
 
     // Adicionar a fução de abrir o dropdown
-    show.addEventListener("click", handleClick);
+    show.addEventListener("click", openDropdown);
 
     /* =================== Trocar elemento selecionado =================== */
 
@@ -47,7 +46,7 @@ export default class Dropdown {
       }
 
       this.classList.add("selected");
-      item.dataset.refersTo = this.dataset.dropdownItem;
+      innerItem.parentElement.dataset.refersTo = this.dataset.dropdownItem;
 
       show.innerHTML = `
         <div class="side flex Body-M items-center gap-1">
@@ -56,16 +55,10 @@ export default class Dropdown {
         </div>
         <img src="./assets/images/icon-chevron-down.svg" alt="" />
       `;
-
-      const mockup = document.querySelector(".mockup");
-      const dom = new Dom();
-      const link = dom.criaLinkMockup(element.dataset.order, rede, "");
-
-      mockup.appendChild(link);
     }
 
-    dropdownItems.forEach((item) => {
-      item.addEventListener("click", trocarHeader);
+    dropdownItems.forEach((dpItem) => {
+      dpItem.addEventListener("click", trocarHeader);
     });
   }
 }

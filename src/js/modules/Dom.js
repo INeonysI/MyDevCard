@@ -1,6 +1,9 @@
 import Dropdown from "./Dropdown.js";
 import socialnetworks from "./socialnetworks.js";
 import drag from "./dragAndDrop.js";
+import { links } from "./glovalVariables.js";
+import createLinkAnchor from "./createLinkAnchor.js";
+import attLinkUrl from "./attLinkUrl.js";
 
 // Retorna o HTML dos itens do dropdown
 function getDropdownItems() {
@@ -16,9 +19,9 @@ function getDropdownItems() {
 
 export default class Dom {
   // Retorna um card para a seleção de links que serão adicionados ao card.
-  criaLinkConfig() {
+  criaLinkConfig(networkname) {
     const element = document.createElement("div");
-
+    // Adiciona as classes e datasets do elemento
     element.classList.add(
       "links-config-item",
       "flex-1",
@@ -26,8 +29,11 @@ export default class Dom {
       "draggable",
       "bg-c7"
     );
-    element.dataset.order =
-      document.querySelectorAll(".links-config-item").length;
+    element.setAttribute(
+      "data-order",
+      document.querySelectorAll(".links-config-item").length
+    );
+    element.setAttribute("data-refers-to", networkname);
     element.setAttribute("draggable", true);
 
     // HTML do card
@@ -38,9 +44,9 @@ export default class Dom {
     >
         <div class="side flex items-center gap-1">
             <img src="./assets/images/icon-drag-and-drop.svg" alt="" dragabble='false' class="cursor-pointer p-1"/>
-            <h3 class="Heading-S text-c5">Item #${
+            <h3 class="Heading-S text-c5">Item #<span class="order">${
               document.querySelectorAll(".links-config-item").length
-            }
+            }</span>
             <h3>
         </div>
     <span class="Body-M text-c5 capitalize">Remove</span>
@@ -52,8 +58,8 @@ export default class Dom {
         data-dropdown="show"
         >
             <div class="side flex Body-M items-center gap-1">
-                <img src="./assets/images/icon-github.svg" alt="" />
-                GitHub
+                ${socialnetworks[networkname].img}
+                ${socialnetworks[networkname].name}
             </div>
             <img src="./assets/images/icon-chevron-down.svg" alt="" />
         </div>
@@ -74,15 +80,24 @@ export default class Dom {
             class="text-field w-full pl-10"
             placeholder="Insert your link"
             />
+            <span data-error-message class="absolute message-error"></span>
         </div>
     </div>
 </div>
     `;
 
+    links.push(element);
     // Inicia a funcionalidade de menu dropdown no elemento
     const dp = new Dropdown(element);
     dp.initDropdown();
+    // Inicia funcionalidade de drag and drop
     drag(element);
+
+    // Cria o link do mockup
+    createLinkAnchor(element);
+
+    // Atualiza
+    attLinkUrl(element);
 
     return element;
   }
@@ -95,6 +110,7 @@ export default class Dom {
     element.style.color = rede.color;
     element.style.top = `${278 + position * 64}px`;
     element.href = url;
+    element.setAttribute("target", "_blank");
 
     element.innerHTML = `
       <div class="flex items-center gap-1">
@@ -104,8 +120,13 @@ export default class Dom {
       <img src="./assets/images/icon-arrow-right.svg" alt=""/>
     `;
 
-    console.log(element);
-
     return element;
   }
+
+  /* atualizaPagina() {
+    const linksArea = document.querySelector("[data-links]");
+    const mockup = document.querySelector(".mockup");
+    
+    links.forEach(link => this.criaLinkConfig(link.getAttribute("data-refers-to")]))
+  }  */
 }

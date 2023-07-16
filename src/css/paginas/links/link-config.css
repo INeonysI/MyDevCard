@@ -72,3 +72,10 @@
   margin-top: 2px;
   color: currentColor;
 }
+
+.message-error {
+  right: 15px;
+  margin-top: 2px;
+
+  color: #ff3939;
+}

@@ -1,39 +1,52 @@
+import { links, linksAnchors } from "./glovalVariables.js";
+
 let indexSelected;
 
 function swapItems(fromIndex, toIndex) {
-  const itemOneContainer = document.querySelector(
-    `[data-order='${fromIndex}']`
+  const itemOne = links[fromIndex].querySelector(
+    `[data-order='${fromIndex}'] div`
   );
-  const itemTwoContainer = document.querySelector(`[data-order='${toIndex}']`);
-  const itemOne = document.querySelector(`[data-order='${fromIndex}'] div`);
-  const itemTwo = document.querySelector(`[data-order='${toIndex}'] div`);
+  const itemTwo = links[toIndex].querySelector(`[data-order='${toIndex}'] div`);
 
-  itemOneContainer.appendChild(itemTwo);
-  itemTwoContainer.appendChild(itemOne);
+  links[fromIndex].appendChild(itemTwo);
+  itemTwo.querySelector(".order").innerHTML = fromIndex;
+  links[toIndex].appendChild(itemOne);
+  itemOne.querySelector(".order").innerHTML = toIndex;
+
+  const aux = links[fromIndex].getAttribute("data-refers-to");
+  links[fromIndex].setAttribute(
+    "data-refers-to",
+    links[toIndex].getAttribute("data-refers-to")
+  );
+  links[toIndex].setAttribute("data-refers-to", aux);
 }
 
-function dragStart(event) {
-  console.log("Start");
+function dragStart() {
   indexSelected = +this.closest("div").getAttribute("data-order");
-  console.log(indexSelected);
 }
 function dragOver(event) {
   event.preventDefault();
+
+  const order = this.getAttribute("data-order");
+  linksAnchors[order].style.left = "45px";
 }
-function dragEnter(event) {
-  console.log("enter");
+function dragEnter() {
   this.classList.remove("bg-c7");
   this.classList.add("bg-c6");
 }
-function dragLeave(event) {
-  console.log("leave");
+function dragLeave() {
   this.classList.add("bg-c7");
   this.classList.remove("bg-c6");
+
+  const order = this.getAttribute("data-order");
+  linksAnchors[order].style.left = "35px";
 }
-function dragDrop(event) {
+function dragDrop() {
   const indexDestiny = +this.getAttribute("data-order");
   this.classList.add("bg-c7");
   this.classList.remove("bg-c6");
+
+  linksAnchors[indexDestiny].style.left = "35px";
 
   swapItems(indexSelected, indexDestiny);
 }

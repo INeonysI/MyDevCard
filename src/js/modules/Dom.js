@@ -4,6 +4,7 @@ import drag from "./dragAndDrop.js";
 import { links } from "./glovalVariables.js";
 import createLinkAnchor from "./createLinkAnchor.js";
 import attLinkUrl from "./attLinkUrl.js";
+import initDeleteLink from "./deleteLink.js";
 
 // Retorna o HTML dos itens do dropdown
 function getDropdownItems() {
@@ -49,7 +50,7 @@ export default class Dom {
             }</span>
             <h3>
         </div>
-    <span class="Body-M text-c5 capitalize">Remove</span>
+    <span class="Body-M text-c5 uppercase cursor-pointer" data-delete>Remove</span>
     </div>
     <div class="links-config-item-dropdown" data-dropdown>
     <span class="Body-S text-c4">plataform</span>
@@ -67,7 +68,7 @@ export default class Dom {
             ${getDropdownItems()}
         </div>
     </div>
-    <div class="-z-10">
+    <div class="teste">
         <span class="Body-S text-c4 block">Link</span>
         <div class="flex items-center">
             <img
@@ -95,6 +96,9 @@ export default class Dom {
 
     // Cria o link do mockup
     createLinkAnchor(element);
+
+    // Adiciona função de apagar link
+    initDeleteLink(element);
 
     // Atualiza
     attLinkUrl(element);

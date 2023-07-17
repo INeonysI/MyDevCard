@@ -2,5 +2,8 @@
   padding: 2.5rem;
 }
 
-.add-btn {
+.add-btn.inativo {
+  opacity: 0.4;
+
+  pointer-events: none;
 }

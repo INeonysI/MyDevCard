@@ -25,11 +25,8 @@
   border-bottom: 1px solid #d9d9d9;
 }
 
-.dropdown-item:hover {
-  color: #633cff;
-}
-
-[data-dropdown-item="selected"] {
+.dropdown-item:hover,
+.dropdown-item.selected {
   color: #633cff;
 }
 
@@ -54,15 +51,12 @@
   overflow-y: scroll;
 
   z-index: 100;
-  isolation: isolate;
 }
 .dropdown-content.active {
   display: flex;
 }
 
 .links-config-item {
-  position: relative;
-
   margin-top: 24px;
 }
 
@@ -78,4 +72,9 @@
   margin-top: 2px;
 
   color: #ff3939;
+}
+
+.teste {
+  position: relative;
+  z-index: -10;
 }

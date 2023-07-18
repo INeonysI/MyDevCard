@@ -2,4 +2,4 @@
 
 > Status: Em desenvolvimento
 
-Deploy: https://devlinks-neonys.netlify.app
+Deploy: https://devlinks-neonys.netlify.app/src/index.html
